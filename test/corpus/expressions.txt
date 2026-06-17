@@ -1519,58 +1519,58 @@ const char *s6 = LR"FOO(
     (init_declarator
       (pointer_declarator
         (identifier))
-      (raw_string_literal
-        (raw_string_content))))
+      (gnu_raw_string_literal
+        (gnu_raw_string_content))))
   (declaration
     (type_qualifier)
     (primitive_type)
     (init_declarator
       (pointer_declarator
         (identifier))
-      (raw_string_literal
-        (raw_string_delimiter)
-        (raw_string_content)
-        (raw_string_delimiter))))
+      (gnu_raw_string_literal
+        (gnu_raw_string_delimiter)
+        (gnu_raw_string_content)
+        (gnu_raw_string_delimiter))))
   (declaration
     (type_qualifier)
     (primitive_type)
     (init_declarator
       (pointer_declarator
         (identifier))
-      (raw_string_literal
-        (raw_string_delimiter)
-        (raw_string_content)
-        (raw_string_delimiter))))
+      (gnu_raw_string_literal
+        (gnu_raw_string_delimiter)
+        (gnu_raw_string_content)
+        (gnu_raw_string_delimiter))))
   (declaration
     (type_qualifier)
     (primitive_type)
     (init_declarator
       (pointer_declarator
         (identifier))
-      (raw_string_literal
-        (raw_string_delimiter)
-        (raw_string_content)
-        (raw_string_delimiter))))
+      (gnu_raw_string_literal
+        (gnu_raw_string_delimiter)
+        (gnu_raw_string_content)
+        (gnu_raw_string_delimiter))))
   (declaration
     (type_qualifier)
     (primitive_type)
     (init_declarator
       (pointer_declarator
         (identifier))
-      (raw_string_literal
-        (raw_string_delimiter)
-        (raw_string_content)
-        (raw_string_delimiter))))
+      (gnu_raw_string_literal
+        (gnu_raw_string_delimiter)
+        (gnu_raw_string_content)
+        (gnu_raw_string_delimiter))))
   (declaration
     (type_qualifier)
     (primitive_type)
     (init_declarator
       (pointer_declarator
         (identifier))
-      (raw_string_literal
-        (raw_string_delimiter)
-        (raw_string_content)
-        (raw_string_delimiter)))))
+      (gnu_raw_string_literal
+        (gnu_raw_string_delimiter)
+        (gnu_raw_string_content)
+        (gnu_raw_string_delimiter)))))
 
 ================================================================================
 Concatenated raw strings
@@ -1597,24 +1597,24 @@ hello)RAW" L"world");
       function: (identifier)
       arguments: (argument_list
         (concatenated_string
-        (raw_string_literal
-          delimiter: (raw_string_delimiter)
-          (raw_string_content)
-          (raw_string_delimiter))
+        (gnu_raw_string_literal
+          delimiter: (gnu_raw_string_delimiter)
+          (gnu_raw_string_content)
+          (gnu_raw_string_delimiter))
           (identifier)
-          (raw_string_literal
-            delimiter: (raw_string_delimiter)
-            (raw_string_content)
-            (raw_string_delimiter))))))
+          (gnu_raw_string_literal
+            delimiter: (gnu_raw_string_delimiter)
+            (gnu_raw_string_content)
+            (gnu_raw_string_delimiter))))))
   (expression_statement
     (call_expression
       function: (identifier)
       arguments: (argument_list
         (concatenated_string
-          (raw_string_literal
-            delimiter: (raw_string_delimiter)
-            (raw_string_content)
-            (raw_string_delimiter))
+          (gnu_raw_string_literal
+            delimiter: (gnu_raw_string_delimiter)
+            (gnu_raw_string_content)
+            (gnu_raw_string_delimiter))
           (identifier)))))
   (expression_statement
     (call_expression
@@ -1623,19 +1623,19 @@ hello)RAW" L"world");
         (concatenated_string
           (string_literal
             (string_content))
-          (raw_string_literal
-            delimiter: (raw_string_delimiter)
-            (raw_string_content)
-            (raw_string_delimiter))))))
+          (gnu_raw_string_literal
+            delimiter: (gnu_raw_string_delimiter)
+            (gnu_raw_string_content)
+            (gnu_raw_string_delimiter))))))
   (expression_statement
     (call_expression
       function: (identifier)
       arguments: (argument_list
         (concatenated_string
-          (raw_string_literal
-            delimiter: (raw_string_delimiter)
-            (raw_string_content)
-            (raw_string_delimiter))
+          (gnu_raw_string_literal
+            delimiter: (gnu_raw_string_delimiter)
+            (gnu_raw_string_content)
+            (gnu_raw_string_delimiter))
           (string_literal
             (string_content))
           (identifier)))))
@@ -1645,10 +1645,10 @@ hello)RAW" L"world");
       arguments: (argument_list
         (concatenated_string
           (identifier)
-          (raw_string_literal
-            delimiter: (raw_string_delimiter)
-            (raw_string_content)
-            (raw_string_delimiter))
+          (gnu_raw_string_literal
+            delimiter: (gnu_raw_string_delimiter)
+            (gnu_raw_string_content)
+            (gnu_raw_string_delimiter))
           (identifier)))))
   (expression_statement
     (call_expression
@@ -1656,10 +1656,10 @@ hello)RAW" L"world");
       arguments: (argument_list
         (concatenated_string
           (identifier)
-          (raw_string_literal
-            delimiter: (raw_string_delimiter)
-            (raw_string_content)
-            (raw_string_delimiter))))))
+          (gnu_raw_string_literal
+            delimiter: (gnu_raw_string_delimiter)
+            (gnu_raw_string_content)
+            (gnu_raw_string_delimiter))))))
   (expression_statement
     (call_expression
       function: (identifier)
@@ -1667,9 +1667,9 @@ hello)RAW" L"world");
         (concatenated_string
           (string_literal
             (string_content))
-          (raw_string_literal
-            delimiter: (raw_string_delimiter)
-            (raw_string_content)
-            (raw_string_delimiter))
+          (gnu_raw_string_literal
+            delimiter: (gnu_raw_string_delimiter)
+            (gnu_raw_string_content)
+            (gnu_raw_string_delimiter))
           (string_literal
             (string_content)))))))

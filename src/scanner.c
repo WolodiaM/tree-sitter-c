@@ -5,7 +5,7 @@
 #include <string.h>
 #include <wctype.h>
 
-enum TokenType { RAW_STRING_DELIMITER, RAW_STRING_CONTENT };
+enum TokenType { GNU_RAW_STRING_DELIMITER, GNU_RAW_STRING_CONTENT };
 
 /// The spec limits delimiters to 16 chars
 #define MAX_DELIMITER_LENGTH 16
@@ -23,7 +23,7 @@ static inline void reset(Scanner *scanner) {
 }
 
 /// Scan the raw string delimiter in R"delimiter(content)delimiter"
-static bool scan_raw_string_delimiter(Scanner *scanner, TSLexer *lexer) {
+static bool scan_gnu_raw_string_delimiter(Scanner *scanner, TSLexer *lexer) {
     if (scanner->delimiter_length > 0) {
         // Closing delimiter: must exactly match the opening delimiter.
         // We already checked this when scanning content, but this is how we
@@ -56,12 +56,12 @@ static bool scan_raw_string_delimiter(Scanner *scanner, TSLexer *lexer) {
 }
 
 /// Scan the raw string content in R"delimiter(content)delimiter"
-static bool scan_raw_string_content(Scanner *scanner, TSLexer *lexer) {
+static bool scan_gnu_raw_string_content(Scanner *scanner, TSLexer *lexer) {
     // The progress made through the delimiter since the last ')'.
     // The delimiter may not contain ')' so a single counter suffices.
     for (int delimiter_index = -1;;) {
         // If we hit EOF, consider the content to terminate there.
-        // This forms an incomplete raw_string_literal, and models the code
+        // This forms an incomplete gnu_raw_string_literal, and models the code
         // well.
         if (lexer->eof(lexer)) {
             lexer->mark_end(lexer);
@@ -103,20 +103,20 @@ void *tree_sitter_c_external_scanner_create() {
 bool tree_sitter_c_external_scanner_scan(void *payload, TSLexer *lexer, const bool *valid_symbols) {
     Scanner *scanner = (Scanner *)payload;
 
-    if (valid_symbols[RAW_STRING_DELIMITER] && valid_symbols[RAW_STRING_CONTENT]) {
+    if (valid_symbols[GNU_RAW_STRING_DELIMITER] && valid_symbols[GNU_RAW_STRING_CONTENT]) {
         // we're in error recovery
         return false;
     }
 
     // No skipping leading whitespace: raw-string grammar is space-sensitive.
-    if (valid_symbols[RAW_STRING_DELIMITER]) {
-        lexer->result_symbol = RAW_STRING_DELIMITER;
-        return scan_raw_string_delimiter(scanner, lexer);
+    if (valid_symbols[GNU_RAW_STRING_DELIMITER]) {
+        lexer->result_symbol = GNU_RAW_STRING_DELIMITER;
+        return scan_gnu_raw_string_delimiter(scanner, lexer);
     }
 
-    if (valid_symbols[RAW_STRING_CONTENT]) {
-        lexer->result_symbol = RAW_STRING_CONTENT;
-        return scan_raw_string_content(scanner, lexer);
+    if (valid_symbols[GNU_RAW_STRING_CONTENT]) {
+        lexer->result_symbol = GNU_RAW_STRING_CONTENT;
+        return scan_gnu_raw_string_content(scanner, lexer);
     }
 
     return false;
